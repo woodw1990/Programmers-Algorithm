@@ -1,0 +1,15 @@
+처음
+SELECT Cart_id from CART_PRODUCTS
+where NAME in ('Milk','Yogurt')
+having count(Cart_id) > 1
+group by cart_id
+order by cart_id
+
+단순히 생각
+select cart_id from cart_products
+where name = 'Yogurt'
+and cart_id in (
+select cart_id from cart_products
+where name = 'Milk'
+    )
+    order by cart_id
